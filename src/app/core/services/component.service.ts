@@ -14,9 +14,9 @@ export class ComponentService {
   }
 
   private generateComponents() {
-    const a = new Component('dunneBinnenjas', [ComponentProperties.COLD_COMFORTABLE]);
-    const b = new Component('buitenjas', [ComponentProperties.WIND_RESISTENT, ComponentProperties.RAIN_RESISTENT])
-    const c = new Component('dikkeBinnenjas', [ComponentProperties.FREEZE_RESISTENT])
+    const a = new Component('Dunne binnenjas', '../../../assets/img/fleece-jack.jpg', [ComponentProperties.COLD_COMFORTABLE]);
+    const b = new Component('Waterdichte buitenjas', '../../../assets/img/warmte-jack.jpg', [ComponentProperties.WIND_RESISTENT, ComponentProperties.RAIN_RESISTENT])
+    const c = new Component('Dikke binnenjas', '../../../assets/img/warmtejack+jas.jpg', [ComponentProperties.FREEZE_RESISTENT])
 
     this.components.push(a, b, c);
 
@@ -27,9 +27,11 @@ export class ComponentService {
 
     requiredProperties.forEach(property => {
       const foundComponent = this.components.find(component => component.properties.includes(property));
-      recommendedComponents.push(foundComponent);
+      // recommendedComponents.push(foundComponent);
+      foundComponent.isRecommended = true;
     });
     
+    return this.components;
     return  [...new Set(recommendedComponents)]; // Using a set removes duplicate components
   }
 }

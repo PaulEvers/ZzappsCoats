@@ -1,13 +1,30 @@
 @import "/styles/variables";
 
 .title {
-    font-size: 64px;
+  font-size: 64px;
+  @include respond-to("small") {
+    font-size: 128px;
+}
 }
 
 .subtitle {
-    font-size: 28px;
+  font-size: 28px;
+  @include respond-to("small") {
+    font-size: 56px;
+}
 }
 
 .hero-container {
-    padding: 2rem;
+  padding: 2rem;
+  @include respond-to("small") {
+      padding: 6rem;
+      margin-top: 4rem;
+  }
+}
+
+.coat-img {
+    @include respond-to("small") {
+        transform: scale(1.8) translate(80px, 0px);
+        margin: auto;
+    }
 }
