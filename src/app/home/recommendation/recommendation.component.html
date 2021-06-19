@@ -1,0 +1,13 @@
+<div class="recommendation-container">
+  <p class="recommendation-title">
+    Ideale combinatie
+  </p>
+  <p class="recommendation-subtitle">Voor de huidige weersomstandigheden raden wij op dit moment de volgende componenten aan:</p>
+  <div class="miniatures-container">
+
+    <ng-container *ngFor="let component of components">
+      <app-component-miniature [isRecommended]="component.isRecommended" [name]="component.name"
+        [imgUrl]="component.imgUrl"></app-component-miniature>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+@import "/styles/variables";
+
+.recommendation-container {
+  padding: 2rem;
+}
+
+.recommendation-title {
+  font-size: 32px;
+  font-weight: 600;
+  @include respond-to("small") {
+    text-align: center;
+  }
+}
+
+.recommendation-subtitle {
+    @include respond-to("small") {
+      text-align: center;
+    }
+  }
+
+.miniatures-container {
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to("small") {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
