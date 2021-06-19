@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./styles/variables";
+@import "./styles/global";
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  // background-color: $background;
+  margin: 0;
+  font-family: Poppins, "Helvetica Neue", sans-serif !important;
+  color: #2b2b2b !important;
+}

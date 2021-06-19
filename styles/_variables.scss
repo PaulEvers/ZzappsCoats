@@ -1,0 +1,42 @@
+
+// COLORS
+$background: #F8F8FF;
+$background-grey: #EDEDED;
+$font-color: #2b2b2b;
+$green: #158C41;
+
+// FONT SIZES
+$size-normal: 15px;
+$size-bigger: 20px;
+$size-biggest: 25px;
+
+$size-web-normal: 17px;
+$size-web-bigger: 24px;
+$size-web-biggest: 47px;
+
+// BREAKPOINTS
+$breakpoints: (
+  'small':  ( min-width:  1023px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px )
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
