@@ -5,6 +5,7 @@ import { Component } from '../classes/Component';
 import { ComponentProperties } from '../classes/ComponentProperties';
 import { WeatherData } from '../classes/WeatherData';
 import { ComponentService } from './component.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,18 @@ export class WeatherService {
 
   constructor(private http: HttpClient, private componentService: ComponentService) { }
 
-  getWeatherData(): Observable<any> {
-    return this.http.get('http://weerlive.nl/api/json-data-10min.php?key=demo&locatie=Amsterdam');
+  getWeatherData(): Observable<WeatherData> {
+    return this.http.get('http://weerlive.nl/api/json-data-10min.php?key=demo&locatie=Amsterdam').pipe(map((response: any) => {
+      const data = response.liveweer[0];
+      
+      const weatherData: WeatherData = {
+        temperature: data.temp,
+        isRaining: data.d0neerslag > 50 ? true : false,
+        isWindy:  data.d0windk > 5 ? true : false,
+      }
+
+      return weatherData;
+    }));
   }
 
   getCoatRecommendation(weatherData: WeatherData): Component[] {
