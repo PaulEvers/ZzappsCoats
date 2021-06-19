@@ -1,0 +1,13 @@
+<div class="recommendation-container">
+    <p class="recommendation-title">
+        Ideale combinatie
+    </p>
+    <p>Voor de huidige weersomstandigheden raden wij op dit moment de volgende componenten aan:</p>
+    <div class="miniatures-container">
+
+        <!-- TODO: Gebruik ngFor voor alle mogelijke componenten uit de ComponentService -->
+        <app-component-miniature [isRecommended]="true"  [name]="'Dunne binnenjas'" [imgUrl]="'../../../assets/img/fleece-jack.jpg'"></app-component-miniature>
+        <app-component-miniature [isRecommended]="false" [name]="'Waterdichte buitenjas'" [imgUrl]="'../../../assets/img/warmte-jack.jpg'"></app-component-miniature>
+        <app-component-miniature [isRecommended]="true"  [name]="'Dikke binnenjas'" [imgUrl]="'../../../assets/img/warmtejack+jas.jpg'"></app-component-miniature>
+    </div>
+</div>

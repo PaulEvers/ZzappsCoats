@@ -1,0 +1,16 @@
+@import "/styles/variables";
+
+.recommendation-container {
+    padding: 2rem;
+
+}
+
+.recommendation-title {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.miniatures-container {
+    display: flex;
+    flex-direction: column;
+}

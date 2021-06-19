@@ -1,0 +1,27 @@
+@import "/styles/variables";
+
+.miniature {
+  width: 140px;
+  height: 140px;
+  border: 6px solid grey;
+  border-radius: 50%;
+  background-image: url("../../../assets/img/fleece-jack.jpg");
+  background-size: 140px 140px;
+  opacity: 0.4;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.recommended {
+    opacity: 1.0;
+    border: 6px solid $primary;
+}
+
+.component-name {
+  margin-top: 4px;
+  opacity: 0.4;
+}
+
+.recommended-text {
+  opacity: 1.0;
+}
