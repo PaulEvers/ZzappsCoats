@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.weatherData$ = this.weatherService.getWeatherData();
+    const a = this.weatherService.getCoatRecommendation({ isRaining: false, isWindy: false, temperature: 20});
+    console.log(a);
   }
 
 }
