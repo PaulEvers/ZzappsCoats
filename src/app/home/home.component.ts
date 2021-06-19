@@ -10,21 +10,24 @@ import { WeatherService } from '../core/services/weather.service';
 export class HomeComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription()
   weatherData$: Observable<any>;
+  components: any;
 
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
     this.weatherData$ = this.weatherService.getWeatherData();
     const sub = this.weatherData$.subscribe(data => {
-      console.log(data);
+
+      // UNCOMMENT TO MOCK DATA:
+      // data.isRaining = true;
+      // data.temperature = 5      
       
-      const a = this.weatherService.getCoatRecommendation(data);
-      console.log(a);
+      const recommendations = this.weatherService.getCoatRecommendation(data);
+      this.components = recommendations;
     })
 
     this.subscriptions.add(sub);
   }
-
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();

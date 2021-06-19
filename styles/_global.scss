@@ -1,1 +1,28 @@
 @import "./variables";
+
+.button,
+.button-coats {
+  background-color: $primary;
+  border-radius: 0%;
+  padding: 8px 12px 8px 12px;
+  color: white;
+  width: fit-content;
+  font-weight: 600;
+  font-family: Poppins, "Helvetica Neue", sans-serif !important;
+  font-size: 16px;
+  border: unset;
+
+  transition: opacity 0.4s;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    &:hover {
+      color: white;
+      cursor: not-allowed;
+    }
+  }
+}
